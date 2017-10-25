@@ -1,11 +1,8 @@
 const routes = require('../config/routes');
 const router = require('express').Router();
+const booksController = require('../controllers/books');
 
 router.route(routes.default)
-    .get(getBooks);
-
-function getBooks(req, res) {
-    res.send('respond with a resource');
-}
+    .get(booksController.getBooks);
 
 module.exports = router;
