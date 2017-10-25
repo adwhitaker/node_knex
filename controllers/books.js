@@ -1,5 +1,5 @@
-var Book = require('../models/Book');
-var seeds = require('../db/seeds');
+const Book = require('../models/Book');
+const seeds = require('../db/seeds');
 
 function getBooks(req, res) {
     let books = [];
@@ -10,6 +10,16 @@ function getBooks(req, res) {
     res.send({ books });
 }
 
+function addBook(book, res) {
+    if (!book) {
+        res.error({ success: false });
+    }
+
+    seeds.books.push(book.toDB());
+    res.send({ success: true });
+}
+
 module.exports = {
-    getBooks
+    getBooks,
+    addBook
 };
