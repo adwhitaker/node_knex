@@ -1,11 +1,8 @@
 const routes = require('../config/routes');
 const router = require('express').Router();
+const usersController = require('../controllers/users');
 
 router.route(routes.default)
-    .get(getUsers);
-
-function getUsers(req, res) {
-    res.send('respond with a resource');
-}
+    .get(usersController.getUsers);
 
 module.exports = router;
