@@ -1,12 +1,8 @@
 const routes = require('../config/routes');
-const router = require('express').Router();
+const books = require('./books.handler');
 
-router.route(routes.default)
-    .get(getIndex);
-
-
-function getIndex(req, res) {
-    res.render('index', {title: 'Express'});
+function mountHandlers(app) {
+    app.use(routes.books, books);
 }
 
-module.exports = router;
+module.exports = mountHandlers;
