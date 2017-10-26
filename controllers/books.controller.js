@@ -1,4 +1,3 @@
-const seeds = require('../db/seeds');
 const db = require('../db/index');
 const queries = require('../db/queries');
 const bookUtils = require('../utilities/books.utils');
@@ -19,8 +18,13 @@ function addBook(book, res) {
         res.error({ success: false });
     }
 
-    seeds.books.push(book.toDB());
-    res.send({ success: true });
+    db.query(queries.books.add, book.toDB())
+        .then(response => {
+            res.send({ success: true });
+        })
+        .catch(err => {
+            res.error({ success: false });
+        });
 }
 
 module.exports = {

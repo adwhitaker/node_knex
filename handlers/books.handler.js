@@ -14,7 +14,7 @@ function addBookHandler(req, res) {
         res.error({ success: false });
     }
 
-    const book = new Book(body.title, body.author, body.publisher, Number(body.publishYear));
+    const book = new Book(null, body.title, body.author, body.publisher, Number(body.publishYear));
     booksController.addBook(book, res);
 }
 
