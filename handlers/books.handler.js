@@ -1,7 +1,7 @@
 const routes = require('../config/routes');
 const router = require('express').Router();
 const Book = require('../models/Book');
-const booksController = require('../controllers/books');
+const booksController = require('../controllers/books.controller');
 
 router.route(routes.default)
     .get(booksController.getBooks)
@@ -14,7 +14,7 @@ function addBookHandler(req, res) {
         res.error({ success: false });
     }
 
-    const book = new Book(body.title, body.author, body.publisher, body.publishYear);
+    const book = new Book(body.title, body.author, body.publisher, Number(body.publishYear));
     booksController.addBook(book, res);
 }
 
