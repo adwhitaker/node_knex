@@ -1,5 +1,6 @@
 class Book {
-    constructor(title, author, publisher, publishYear) {
+    constructor(id, title, author, publisher, publishYear) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.publisher = publisher;
@@ -8,6 +9,7 @@ class Book {
 
     toDB() {
         return {
+            book_id: this.id,
             title: this.title,
             author: this.author,
             publisher: this.publisher,
