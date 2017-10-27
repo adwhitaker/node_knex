@@ -8,11 +8,7 @@ class Book {
     }
 
     toDB() {
-        let bookDB = [];
-        if (this.id) {
-            bookDB.push(this.id);
-        }
-        return bookDB.concat([this.title, this.author, this.publisher, this.publishYear]);
+        return [this.title, this.author, this.publisher, this.publishYear];
     }
 }
 
