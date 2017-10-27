@@ -4,8 +4,12 @@ const Book = require('../models/Book');
 const booksController = require('../controllers/books.controller');
 
 router.route(routes.default)
-    .get(booksController.getBooks)
+    .get(getBooksHandler)
     .post(addBookHandler);
+
+function getBooksHandler(req, res) {
+    booksController.getBooks(req, res);
+}
 
 function addBookHandler(req, res) {
     const { body } = req;
