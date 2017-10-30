@@ -1,4 +1,4 @@
 module.exports = {
-  default: '/',
-  books: '/books'
+    default: '/',
+    books: '/books'
 };
